@@ -1,24 +1,9 @@
-# README
+## Proyecto Ingeniería de Software I
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+>> Cafeteria Maybe_enjoy
 
-Things you may want to cover:
+* Venta de café
+* Manejo de usuarios
+* Manejo de pedidos
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
