@@ -1,0 +1,10 @@
+class PagesController < ApplicationController
+  def home
+  end
+
+  def menu
+  end
+
+  def event
+  end
+end

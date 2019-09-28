@@ -1,0 +1,3 @@
+Para crear las páginas hice lo siguiente:
+	rails g controller Pages home menu event
+
