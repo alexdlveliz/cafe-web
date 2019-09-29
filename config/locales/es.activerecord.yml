@@ -1,0 +1,24 @@
+es:
+  activerecord:
+    models:
+      sell: 
+        one: venta
+        other: ventas
+      order: 
+        one: Orden
+        Other: Ordenes
+      product: 
+        one: Producto
+        other: Productos
+    attributes:
+      sell:
+        date_sell: Fecha de la venta
+        total: Total
+      product:
+        name: Nombre
+        price: Precio
+        description: Descripción
+      order:
+        price: Precio
+        quantity: Cantidad
+      
