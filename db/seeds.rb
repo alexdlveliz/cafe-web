@@ -7,6 +7,18 @@
 end
 puts "25 products created"
 
+5.times do |event|
+    Event.create!(
+        name: "Evento #{event}",
+        description: "Descripción para el evento #{event}",
+        main_image: "http://placehold.it/600x400",
+        thumb_image: "http://placehold.it/350x200",
+        date_event: Time.now
+    )
+end
+
+puts "5 events created"
+
 
 5.times do |order|
     Order.create!(
