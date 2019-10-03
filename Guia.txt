@@ -1,3 +1,5 @@
 Para crear las páginas hice lo siguiente:
 	rails g controller Pages home menu event
 
+Para poder tener la información en la base de datos local ejecutar:
+	rails db:setup
