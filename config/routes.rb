@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :events
   get 'menu', to: 'pages#menu'
   get 'eventos', to: 'pages#event'
   get 'product/:id', to: 'products#show', as: 'product_show'
