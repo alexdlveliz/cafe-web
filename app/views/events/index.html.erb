@@ -1,8 +1,10 @@
 <h1>Eventos</h1>
 
-<% @events_item.each do |events_item| %>
+<%# Recorrer cada evento y mostrarlo en pantalla %>
+<% @events_items.each do |events_item| %>
     <p><%= events_item.name %></p>
-    <%= image_tag events_item.thumb_image %>
+    <%# Mostrar la imagen del evento, a menos que la imagen no exista %>
+    <%= image_tag events_item.thumb_image unless events_item.thumb_image.nil? %>
     <p><%= events_item.description %></p>
     <p><%= events_item.date_event %></p>
 <% end %>
