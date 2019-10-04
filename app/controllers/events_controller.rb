@@ -33,4 +33,8 @@ class EventsController < ApplicationController
           end
         end
     end
+
+    def show
+      @events_item = Event.find(params[:id])
+    end
 end
