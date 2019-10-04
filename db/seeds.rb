@@ -7,7 +7,7 @@
 end
 puts "25 products created"
 
-5.times do |event|
+10.times do |event|
     Event.create!(
         name: "Evento #{event}",
         description: "Descripción para el evento #{event}",
@@ -17,7 +17,7 @@ puts "25 products created"
     )
 end
 
-puts "5 events created"
+puts "10 events created"
 
 
 5.times do |order|

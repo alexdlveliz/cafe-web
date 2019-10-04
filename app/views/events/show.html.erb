@@ -1,4 +1,4 @@
-<%= image_tag  @events_item.main_image %>
+<%= image_tag  @events_item.main_image unless @events_item.main_image.nil? %>
 
 <h1><%= @events_item.name %></h1>
 <p><%= @events_item.description %></p>

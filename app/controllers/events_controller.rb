@@ -20,11 +20,11 @@ class EventsController < ApplicationController
     end
 
     def edit
-        @events_item = Event.find(params[:id])
+        @events_item = Event.friendly.find(params[:id])
     end
 
     def update
-        @events_item = Event.find(params[:id])
+        @events_item = Event.friendly.find(params[:id])
         respond_to do |format|
           if @events_item.update(params.require(:event).permit(:name, :description))
             format.html { redirect_to events_path, notice: 'El evento fue actualizado correctamente.' }
@@ -35,11 +35,11 @@ class EventsController < ApplicationController
     end
 
     def show
-      @events_item = Event.find(params[:id])
+      @events_item = Event.friendly.find(params[:id])
     end
 
     def destroy
-      @events_item = Event.find(params[:id])
+      @events_item = Event.friendly.find(params[:id])
 
       @events_item.destroy
 
