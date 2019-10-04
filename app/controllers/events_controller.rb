@@ -37,4 +37,14 @@ class EventsController < ApplicationController
     def show
       @events_item = Event.find(params[:id])
     end
+
+    def destroy
+      @events_item = Event.find(params[:id])
+
+      @events_item.destroy
+
+      respond_to do |format|
+        format.html { redirect_to events_url, notice: 'El evento fue eliminado correctamente' }
+      end
+    end
 end
