@@ -47,4 +47,16 @@ class EventsController < ApplicationController
         format.html { redirect_to events_url, notice: 'El evento fue eliminado correctamente' }
       end
     end
+
+    def toggle_status
+      @events_item = Event.friendly.find(params[:id])
+
+      if @events_item.draft?
+        @events_item.published!
+      elsif @events_item.published?
+        @events_item.draft!
+      end
+
+      redirect_to events_url, notice: "El evento fue actualizado"
+    end
 end
