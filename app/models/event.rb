@@ -8,4 +8,7 @@ class Event < ApplicationRecord
     #Dándole la habilidad a los eventos de tener friendly routes
     extend FriendlyId
     friendly_id :name, use: :slugged
+
+    #Validar los datos que deben tener los eventos para poder ser creados
+    validates_presence_of :name, :description, :main_image, :thumb_image
 end

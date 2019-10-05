@@ -1,62 +1,63 @@
 class EventsController < ApplicationController
-    def index
-        @events_items = Event.all
-    end
 
-    def new
-        @events_item = Event.new
-    end
+  def index
+      @events_items = Event.all
+  end
 
-    def create
-        @events_item = Event.new(params.require(:event).permit(:name, :description))
-    
-        respond_to do |format|
-          if @events_item.save
-            format.html { redirect_to events_path, notice: 'El evento fue creado exitosamente.' }
-          else
-            format.html { render :new }
-          end
-        end
-    end
+  def new
+      @events_item = Event.new
+  end
 
-    def edit
-        @events_item = Event.friendly.find(params[:id])
-    end
-
-    def update
-        @events_item = Event.friendly.find(params[:id])
-        respond_to do |format|
-          if @events_item.update(params.require(:event).permit(:name, :description))
-            format.html { redirect_to events_path, notice: 'El evento fue actualizado correctamente.' }
-          else
-            format.html { render :edit }
-          end
-        end
-    end
-
-    def show
-      @events_item = Event.friendly.find(params[:id])
-    end
-
-    def destroy
-      @events_item = Event.friendly.find(params[:id])
-
-      @events_item.destroy
-
+  def create
+      @events_item = Event.new(params.require(:event).permit(:name, :description))
+  
       respond_to do |format|
-        format.html { redirect_to events_url, notice: 'El evento fue eliminado correctamente' }
+        if @events_item.save
+          format.html { redirect_to events_path, notice: 'El evento fue creado exitosamente.' }
+        else
+          format.html { render :new }
+        end
       end
-    end
+  end
 
-    def toggle_status
+  def edit
       @events_item = Event.friendly.find(params[:id])
+  end
 
-      if @events_item.draft?
-        @events_item.published!
-      elsif @events_item.published?
-        @events_item.draft!
+  def update
+      @events_item = Event.friendly.find(params[:id])
+      respond_to do |format|
+        if @events_item.update(params.require(:event).permit(:name, :description))
+          format.html { redirect_to events_path, notice: 'El evento fue actualizado correctamente.' }
+        else
+          format.html { render :edit }
+        end
       end
+  end
 
-      redirect_to events_url, notice: "El evento fue actualizado"
+  def show
+    @events_item = Event.friendly.find(params[:id])
+  end
+
+  def destroy
+    @events_item = Event.friendly.find(params[:id])
+
+    @events_item.destroy
+
+    respond_to do |format|
+      format.html { redirect_to events_url, notice: 'El evento fue eliminado correctamente' }
     end
+  end
+
+  def toggle_status
+    @events_item = Event.friendly.find(params[:id])
+
+    if @events_item.draft?
+      @events_item.published!
+    elsif @events_item.published?
+      @events_item.draft!
+    end
+
+    redirect_to events_url, notice: "El evento fue actualizado"
+  end
 end
