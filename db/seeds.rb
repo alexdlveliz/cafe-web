@@ -13,21 +13,25 @@ puts "25 products created"
         description: "Descripción para el evento #{event}",
         main_image: "http://placehold.it/600x400",
         thumb_image: "http://placehold.it/350x200",
-        date_event: Time.now
+        date_event: Time.now,
+        status: 0
     )
 end
 
-puts "10 events created"
+puts "10 draft events created"
 
-
-5.times do |order|
-    Order.create!(
-        price: rand(15.50...150.50),
-        quantity: (order+1)
+10.times do |event|
+    Event.create!(
+        name: "Evento público #{event}",
+        description: "Descripción para el evento #{event}",
+        main_image: "http://placehold.it/600x400",
+        thumb_image: "http://placehold.it/350x200",
+        date_event: Time.now,
+        status: 1
     )
 end
 
-puts "5 orders created"
+puts "10 published events created"
 
 5.times do |sell|
     Sell.create!(
@@ -37,3 +41,14 @@ puts "5 orders created"
 end
 
 puts "5 sells created"
+
+5.times do |order|
+    Order.create!(
+        price: rand(15.50...150.50),
+        quantity: (order+1),
+        sell_id: Sell.last.id
+    )
+end
+
+puts "5 orders created"
+

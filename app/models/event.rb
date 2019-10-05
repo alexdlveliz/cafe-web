@@ -11,4 +11,9 @@ class Event < ApplicationRecord
 
     #Validar los datos que deben tener los eventos para poder ser creados
     validates_presence_of :name, :description, :main_image, :thumb_image
+
+    #Consultas directas a la base de datos
+        #Métodos propios para traer eventos públicos o privados
+    scope :draft_events, -> { draft }
+    scope :published_events, -> { published }
 end

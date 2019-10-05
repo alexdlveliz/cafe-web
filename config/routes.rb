@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       get :toggle_status
     end
   end
+
   get 'menu', to: 'pages#menu'
   get 'eventos', to: 'pages#event'
   get 'product/:id', to: 'products#show', as: 'product_show'
