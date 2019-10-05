@@ -3,3 +3,12 @@ Para crear las páginas hice lo siguiente:
 
 Para poder tener la información en la base de datos local ejecutar:
 	rails db:setup
+
+Para crear la relación entre order y sell:
+	rails g migration add_sell_reference_to_order sell:references
+
+	Probar estas consultas:
+	o = Order.last
+	o.sell
+
+	Sell.last.orders
