@@ -14,6 +14,20 @@ class Event < ApplicationRecord
 
     #Consultas directas a la base de datos
         #Métodos propios para traer eventos públicos o privados
+        #Las líneas de abajo funcionan igual como que se dijera:
+            # Event.where(status: 0) para draft
+            # Event.where(status: 1) para published
     scope :draft_events, -> { draft }
     scope :published_events, -> { published }
+
+    after_initialize :set_defaults
+
+    def set_defaults
+        # ||= es como decir
+        # if self.main_image == nil
+        #   self.main_image = "http://placehold.it/600x400"
+        # end
+        self.main_image ||= "http://placehold.it/600x400"
+        self.thumb_image ||= "http://placehold.it/350x200"
+    end
 end
