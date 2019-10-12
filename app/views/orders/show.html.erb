@@ -10,5 +10,15 @@
   <%= @order.quantity %>
 </p>
 
+<p>
+  <strong>Product:</strong>
+  <%= @order.product %>
+</p>
+
+<p>
+  <strong>Sell:</strong>
+  <%= @order.sell %>
+</p>
+
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

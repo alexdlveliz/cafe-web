@@ -1,3 +1,4 @@
 class Product < ApplicationRecord
-    validates_presence_of :name, :price, :description
+    has_many :orders
+    has_many :sells, through: :orders
 end

@@ -1,3 +1,28 @@
+Para crear los modelos hice lo siguiente:
+	rails g scaffold Product name:string price:float description:text
+	rails g scaffold Sell sell_date:date total:float 
+
+Para crear la relación entre los modelos creados arriba:
+	rails g scaffold Order price:float quantity:integer product:references sell:references
+
+Para probar a insertar datos pueden hacer lo siguiente desde la consola de rails:
+	Se crean dos productos de prueba: 
+		p1 = Product.create!(name: "Producto 1", price: 25.50, description: "Descripción producto 1")
+		p2 = Product.create!(name: "Producto 2", price: 25.50, description: "Descripción producto 2")
+	Se crea una venta:
+		s1 = Sell.create!(sell_date: Time.now, total: 50, products: [p1,p2])
+
+	Para poder ver los datos ingresados pueden hacer lo siguiente:
+		s1.products
+		s1.products.count
+		s1.orders
+		s1.orders.count
+
+
+
+
+
+
 Para crear las páginas hice lo siguiente:
 	rails g controller Pages home menu event
 

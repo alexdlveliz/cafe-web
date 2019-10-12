@@ -1,5 +1,4 @@
 class Sell < ApplicationRecord
-    validates_presence_of :date_sell, :total
-    
     has_many :orders
+    has_many :products, through: :orders
 end

@@ -1,5 +1,4 @@
 class Order < ApplicationRecord
-    validates_presence_of :price, :quantity
-    
-    belongs_to :sell, optional: true
+  belongs_to :product, optional: true
+  belongs_to :sell, optional: true
 end

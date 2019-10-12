@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :orders
+  resources :sells
+  resources :products
   resources :events do 
     member do
       get :toggle_status
