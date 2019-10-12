@@ -33,22 +33,14 @@ end
 
 puts "10 published events created"
 
-5.times do |sell|
+15.times do |sell|
     Sell.create!(
-        date_sell: Time.now.to_formatted_s(:date), 
-        total: rand(150.50...500.00)
+        sell_date: Time.now.to_formatted_s(:date), 
+        total: rand(150.50...500.00),
+        products: [Product.first, Product.last]
     )
 end
 
-puts "5 sells created"
+puts "15 sells created"
 
-5.times do |order|
-    Order.create!(
-        price: rand(15.50...150.50),
-        quantity: (order+1),
-        sell_id: Sell.last.id
-    )
-end
-
-puts "5 orders created"
 
