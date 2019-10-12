@@ -11,7 +11,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @events_item = Event.new(params.require(:event).permit(:name, :description))
+    @events_item = Event.new(events_params)
 
     respond_to do |format|
       if @events_item.save
@@ -29,7 +29,7 @@ class EventsController < ApplicationController
   def update
     @events_item = Event.friendly.find(params[:id])
     respond_to do |format|
-      if @events_item.update(params.require(:event).permit(:name, :description))
+      if @events_item.update(events_params)
         format.html { redirect_to events_path, notice: 'El evento fue actualizado correctamente.' }
       else
         format.html { render :edit }
@@ -62,4 +62,16 @@ class EventsController < ApplicationController
 
     redirect_to events_url, notice: "El evento fue actualizado"
   end
+
+  def events_params
+    params.require(:event).permit(:name, 
+                                :description, 
+                                :main_image,
+                                :thumb_image,
+                                :date_event,
+                                :slug,
+                                :status
+                              )
+  end
 end
+
