@@ -2,6 +2,7 @@ class EventsController < ApplicationController
 
   def index
     @events_items = Event.all
+    @page_title = "Cafe Web | Eventos"
     #@events_items = Event.published -> Si se quiere mostrar solo los eventos públicos
     #@events_items = Event.draft -> Si se quiere mostrar solo los eventos privados
   end
@@ -38,6 +39,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @page_title = Event.friendly.find(params[:id]).name
     @events_item = Event.friendly.find(params[:id])
   end
 

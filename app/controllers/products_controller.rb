@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    @page_title = "Cafe Web | Productos"
   end
 
   # GET /products/1
