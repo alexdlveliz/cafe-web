@@ -1,5 +1,6 @@
 class SellsController < ApplicationController
   before_action :set_sell, only: [:show, :edit, :update, :destroy]
+  layout "sell"
 
   # GET /sells
   # GET /sells.json
