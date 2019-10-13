@@ -15,13 +15,9 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
-    <%# div para el menú de navegación %>
-    <div>
-      <div><%= link_to "Home", root_path %></div>
-      <div><%= link_to "Menú", products_path %></div>
-      <div><%= link_to "Eventos", events_path %></div>
-    </div>
+    
+    <%# Llamando al partial llamado nav %>
+    <%= render "shared/nav" %>
 
     <%# Condición para mostrar el login o el logout %>
     <% if current_user.is_a?(User) %>
