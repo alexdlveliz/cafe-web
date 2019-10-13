@@ -16,9 +16,6 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%# Llamando al partial llamado nav %>
-    <%= render "shared/nav" %>
-
     <%# Condición para mostrar el login o el logout %>
     <% if current_user.is_a?(User) %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete %>
@@ -29,5 +26,8 @@
     
     <%# Permite conectar con cualquier otro archivo html%>
     <%= yield %>
+
+    <%# Llamando al partial llamado nav %>
+    <%= render "shared/nav", location: 'bottom' %>
   </body>
 </html>

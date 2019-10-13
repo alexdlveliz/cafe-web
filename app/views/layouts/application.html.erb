@@ -17,7 +17,7 @@
     <p class="alert"><%= alert %></p>
 
     <%# Llamando al partial llamado nav %>
-    <%= render "shared/nav" %>
+    <%= render "shared/nav", location: 'top' %>
 
     <%# Condición para mostrar el login o el logout %>
     <% if current_user.is_a?(User) %>
