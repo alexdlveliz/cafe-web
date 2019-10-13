@@ -25,6 +25,7 @@ es:
         unconfirmed_email: Email no confirmado
         unlock_token: Código de desbloqueo
         updated_at: Actualizado en
+        name: Nombre
     models:
       user:
         one: Usuario

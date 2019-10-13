@@ -10,6 +10,9 @@ es:
       product: 
         one: Producto
         other: Productos
+      event:
+        one: Evento
+        other: Eventos
     attributes:
       sell:
         date_sell: Fecha de la venta
@@ -21,4 +24,9 @@ es:
       order:
         price: Precio
         quantity: Cantidad
-      
+      event:
+        name: Nombre
+        description: Descripción
+        main_image: 
+        date_event: Fecha del evento
+        created_at: Creado  en
