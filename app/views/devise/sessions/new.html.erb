@@ -1,26 +1,69 @@
-<h2>Log in</h2>
+<%#<h2>Log innn</h2> %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="contenedor">
+  <header>
+    <h1>Maybe Enjoy?</h1>
+  </header>
+  <div class="login">
+    <%= image_tag "MaybeEnjoy.jpg", id: "background" %>
+    <article class="fondo">
+      <%= image_tag "log.png" %>
+      <h3>Inicio de Sesión</h3>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field textbox">
+          <%= fa_icon "user" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Usuario", class: "input-transparent" %>
+        </div>
+
+        <div class="field textbox">
+          <%= fa_icon "key" %>    
+          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Contraseña", class: "input-transparent" %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="field nopass">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+
+        <div class="actions boton">
+          <%= f.submit "Log in", class: 'estilos' %>
+        </div>
+      <% end %>
+    </article>
+
   </div>
+</div>
+      
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<%# 
+<div class="contenedor">
+  <header>
+      <h1>Maybe Enjoy?</h1>
+      <a href="Registrate">Regístrate</a>
+  </header>
+  <div class="login">
+    <article class="fondo">
+      <h3>Inicio de Sesión</h3>
+      <form class="" action="index.html" method="POST">
+          <div class="textbox">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Usuario" name="" value="" class="input-transparent">
+          </div>
+          <div class="textbox">
+              <i class="fas fa-key"></i>
+              <input type="password" placeholder="Contraseña" name="" value="" class="input-transparent">
+          </div>
+          <div class="nopass">
+              <a href="">¿Olvidaste tu contraseña?</a>
+          </div>
+          <div class="boton">
+              <button>
+                  <i class="fas fa-sign-in-alt"> Ingresar</i>
+              </button>
+          </div>
+      </form>
+    </article>
+</div>
+%>
