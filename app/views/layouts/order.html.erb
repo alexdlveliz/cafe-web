@@ -19,13 +19,8 @@
     <%# Llamando al partial llamado nav %>
     <%= render "shared/nav", location: 'top' %>
 
-    <%# Condición para mostrar el login o el logout %>
-    <% if current_user.is_a?(User) %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Register", new_user_registration_path %>
-      <%= link_to "Log in", new_user_session_path %>
-    <% end %>
+    <%# Llamando a un método helper %>
+    <%= login_helper %>
     
     <%# Permite conectar con cualquier otro archivo html%>
     <%= yield %>
