@@ -9,4 +9,8 @@ module ApplicationHelper
             (link_to "Log in", new_user_session_path)
         end
     end
+
+    def copyright_generator
+        TelloViewTool::Renderer.copyright "MultiTorial", "Todos los derechos reservados"
+    end
 end
