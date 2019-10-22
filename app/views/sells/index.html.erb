@@ -12,15 +12,7 @@
   </thead>
 
   <tbody>
-    <% @sells.each do |sell| %>
-      <tr>
-        <td><%= sell.sell_date %></td>
-        <td><%= sell.total %></td>
-        <td><%= link_to 'Show', sell_show_path(sell) %></td>
-        <td><%= link_to 'Edit', edit_sell_path(sell) %></td>
-        <td><%= link_to 'Destroy', sell, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <%= render @sells%>
   </tbody>
 </table>
 
