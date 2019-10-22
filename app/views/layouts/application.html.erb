@@ -16,17 +16,26 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
-
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%# Llamando al partial llamado nav %>
-    <%= render "shared/nav", location: 'top' %>
-
-    <%# Llamando a un método helper %>
-    <%= login_helper %>
-    
+    <header>
+      <nav class="be-black white large-padding">
+        <ul class="row center-xs middle-xs no-dots">
+          <li class="col-md">
+            <h1 class="no-margin" id="logo">
+              Maybe Enjoy?
+            </h1>
+          </li>
+          <li class="col-md">
+            <%# Llamando al partial llamado nav %>
+            <%= render "shared/nav", location: 'top' %>
+          </li>
+        </ul>
+      </nav>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%# Llamando a un método helper %>
+      <%= login_helper %>
+    </header>
     <%# Permite conectar con cualquier otro archivo html%>
     <%= yield %>
   </body>

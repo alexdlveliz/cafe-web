@@ -1,9 +1,6 @@
 <%#<h2>Log innn</h2> %>
 
 <div class="contenedor">
-  <header>
-    <h1>Maybe Enjoy?</h1>
-  </header>
   <div class="login">
     <%= image_tag "MaybeEnjoy.jpg", id: "background" %>
     <article class="fondo">
@@ -14,7 +11,6 @@
           <%= fa_icon "user" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Usuario", class: "input-transparent" %>
         </div>
-
         <div class="field textbox">
           <%= fa_icon "key" %>    
           <%= f.password_field :password, autocomplete: "current-password", placeholder: "Contraseña", class: "input-transparent" %>
