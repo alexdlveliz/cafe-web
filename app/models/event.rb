@@ -12,6 +12,10 @@ class Event < ApplicationRecord
     #Validar los datos que deben tener los eventos para poder ser creados
     validates_presence_of :name, :description, :main_image, :thumb_image
 
+    #método provisto por la gema carrierwave para poder utilizar las imágenes de AWS
+    mount_uploader :thumb_image, EventUploader
+    mount_uploader :main_image, EventUploader
+
     #Consultas directas a la base de datos
         #Métodos propios para traer eventos públicos o privados
         #Las líneas de abajo funcionan igual como que se dijera:
