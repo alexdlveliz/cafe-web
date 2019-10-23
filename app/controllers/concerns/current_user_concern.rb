@@ -8,11 +8,13 @@ module CurrentUserConcern
         super || guest_user
     end
 
+    #Se crea un 'guest user' basándose del modelo 'guest_user.rb'
     def guest_user
-        OpenStruct.new( name: "Gest User", 
-                        first_name: "Guest", 
-                        last_name: "User", 
-                        email: "guest@example.com"
-                        )
+        guest = GuestUser.new
+        guest.name = "Guest User"
+        guest.first_name = "Guest"
+        guest.last_name = "User"
+        guest.email = "guest@example.com"
+        guest
     end
 end

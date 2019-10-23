@@ -1,6 +1,6 @@
 <h1>Eventos</h1>
 
-<%= link_to "Crear nuevo evento", new_event_path %>
+<%= link_to "Crear nuevo evento", new_event_path if logged_in?(:site_admin) %>
 
 <%# Recorrer cada evento y mostrarlo en pantalla %>
 <%= render partial: 'events_item', collection:  @events_items %>

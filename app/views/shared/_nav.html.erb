@@ -3,6 +3,6 @@
     <div><%= link_to "Home", root_path %></div>
     <div><%= link_to "Menú", products_path %></div>
     <div><%= link_to "Eventos", events_path %></div>
-    <div><%= link_to "Venta", sells_path if current_user.is_a?(User) %></div>
-    <div><%= link_to "Órdenes", orders_path if current_user.is_a?(User) %></div>
+    <div><%= link_to "Venta", sells_path if logged_in?(:site_admin) %></div>
+    <div><%= link_to "Órdenes", orders_path if logged_in?(:site_admin) %></div>
 </div>

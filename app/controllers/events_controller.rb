@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   layout "event"
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
 
   def index
     @events_items = Event.all
