@@ -1,4 +1,4 @@
-<%= image_tag  (@events_item.main_image).to_s unless @events_item.main_image.nil? %>
+<%= image_tag event_img((@events_item.main_image), 'main').to_s %>
 
 <h1><%= @events_item.name.upcase %></h1>
 <p><%= @events_item.description %></p>

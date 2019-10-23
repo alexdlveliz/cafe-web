@@ -10,7 +10,7 @@ class Event < ApplicationRecord
     friendly_id :name, use: :slugged
 
     #Validar los datos que deben tener los eventos para poder ser creados
-    validates_presence_of :name, :description, :main_image, :thumb_image
+    validates_presence_of :name, :description
 
     #método provisto por la gema carrierwave para poder utilizar las imágenes de AWS
     mount_uploader :thumb_image, EventUploader
@@ -24,14 +24,4 @@ class Event < ApplicationRecord
     scope :draft_events, -> { draft }
     scope :published_events, -> { published }
 
-    after_initialize :set_defaults
-
-    def set_defaults
-        # ||= es como decir
-        # if self.main_image == nil
-        #   self.main_image = "http://placehold.it/600x400"
-        # end
-        self.main_image ||= "http://placehold.it/600x400"
-        self.thumb_image ||= "http://placehold.it/350x200"
-    end
 end
