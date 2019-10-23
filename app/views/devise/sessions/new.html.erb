@@ -1,10 +1,7 @@
 <%#<h2>Log innn</h2> %>
 
 <%# Form para el log in %>
-<div class="contenedor">
-  <header>
-    <h1>Maybe Enjoy?</h1>
-  </header>
+
   <div class="login">
     <%= image_tag "MaybeEnjoy.jpg", id: "background" %>
     <article class="fondo">
@@ -24,15 +21,14 @@
         <% if devise_mapping.rememberable? %>
           <div class="field nopass">
             <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
+            <%= f.label :remember_me, class: "recordarme" %>
           </div>
         <% end %>
 
         <div class="actions boton">
-          <%= f.submit "Log in", class: 'estilos' %>
+          <%= f.submit "Log in", class: 'estilos recordarme' %>
         </div>
       <% end %>
     </article>
 
   </div>
-</div>

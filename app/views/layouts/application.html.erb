@@ -18,19 +18,22 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+          <%# Llamando al partial llamado application_nav %>
+          <%= render "shared/application_nav" %>
 
-    <%# Llamando al partial llamado nav %>
-    <%= render "shared/nav", location: 'top' %>
+          <%# Llamando a un método helper %>
+          <%= login_helper %>
+          
+          <%# Permite conectar con cualquier otro archivo html%>
+          <%= yield %>
 
-    <%# Llamando a un método helper %>
-    <%= login_helper %>
-    
-    <%# Permite conectar con cualquier otro archivo html%>
-    <%= yield %>
-
-    <%# Partial para mostrar el copyright %>
-    <%= copyright_generator %>
+          <%# Partial para mostrar el copyright %>
+          <%= copyright_generator %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
