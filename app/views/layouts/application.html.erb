@@ -23,15 +23,12 @@
         <div class="cover-container">
           <%# Llamando al partial llamado application_nav %>
           <%= render "shared/application_nav" %>
-
-          <%# Llamando a un método helper %>
-          <%= login_helper %>
           
           <%# Permite conectar con cualquier otro archivo html%>
           <%= yield %>
 
-          <%# Partial para mostrar el copyright %>
-          <%= copyright_generator %>
+          <%# Llamando al partial llamado application_footer %>
+          <%= render "shared/application_footer" %>
         </div>
       </div>
     </div>

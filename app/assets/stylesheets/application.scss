@@ -68,11 +68,9 @@ header a:hover{
     flex-direction: column;
     align-items: center;
     align-items: center;
-    width: 100%;
     height: 100%;
 }
 .fondo{
-    width: 100%;
     background-color: rgba(0,0,0,0.3);
     margin: 0;
     display: flex;
@@ -207,6 +205,38 @@ i{
     .masthead,
     .mastfoot,
     .cover-container {
-      width: 42rem;
+      width: 55rem;
     }
+  }
+
+  /*
+ * Footer
+ */
+
+.mastfoot {
+    color: rgba(255,255,255,.5);
+    text-align: center;
+  }
+  
+  
+  /*
+   * Affix and center
+   */
+  
+  @media (min-width: 40em) {
+    /* Pull out the header and footer */
+    .masthead {
+      position: fixed;
+      top: 0;
+      text-align: center;
+    }
+    .mastfoot {
+      position: fixed;
+      bottom: 0;
+    }
+    /* Start the vertical centering */
+    .site-wrapper-inner {
+      vertical-align: middle;
+    }
+    
   }
