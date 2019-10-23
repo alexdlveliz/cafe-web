@@ -10,7 +10,6 @@ Para probar a insertar datos pueden hacer lo siguiente desde la consola de rails
 		p1 = Product.create!(name: "Producto 1", price: 25.50, description: "Descripción producto 1")
 		p2 = Product.create!(name: "Producto 2", price: 25.50, description: "Descripción producto 2")
 	Se crea una venta:
-		s1 = Sell.create!(sell_date: Time.now, total: 50, products: [p1,p2])
 
 	Para poder ver los datos ingresados pueden hacer lo siguiente:
 		s1.products

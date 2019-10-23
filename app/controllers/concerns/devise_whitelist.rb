@@ -1,3 +1,4 @@
+#Módulo para definir la lista de parámetros que puede recibir el 'devise'
 module DeviseWhitelist
     #Este archivo está dentro de la carpeta Concerns, por eso necesitamos incluir lo siguiente
     extend ActiveSupport::Concern

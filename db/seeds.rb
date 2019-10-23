@@ -1,3 +1,4 @@
+#Crear 25 productos de prueba
 25.times do |product|
     Product.create!(
         name: "Product #{product}", 
@@ -7,6 +8,7 @@
 end
 puts "25 products created"
 
+#Crear 10 eventos privados
 10.times do |event|
     Event.create!(
         name: "Evento #{event}",
@@ -20,6 +22,7 @@ end
 
 puts "10 draft events created"
 
+#Crear 10 eventos públicos
 10.times do |event|
     Event.create!(
         name: "Evento público #{event}",
@@ -33,6 +36,7 @@ end
 
 puts "10 published events created"
 
+#Crear 15 ventas de prueba
 15.times do |sell|
     Sell.create!(
         sell_date: Time.now.to_formatted_s(:date), 

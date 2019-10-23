@@ -1,3 +1,4 @@
+#Module para definir el título de la página que va a aparecer en cada pestaña
 module DefaultPageContent
     #Este archivo está dentro de la carpeta Concerns, por eso necesitamos incluir lo siguiente
     extend ActiveSupport::Concern

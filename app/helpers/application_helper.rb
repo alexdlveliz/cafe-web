@@ -1,6 +1,6 @@
 module ApplicationHelper
+    #Método para mostrar el login o logout según sea el usuario que está usando la aplicación
     def login_helper
-        #Condición para mostrar el login o el logout
         if current_user.is_a?(GuestUser)
             (link_to "Register", new_user_registration_path) + 
             "<br>".html_safe + 
@@ -10,6 +10,7 @@ module ApplicationHelper
         end
     end
 
+    #Método helper para agregar el footer a través de la gema 'tello_view_tool
     def copyright_generator
         TelloViewTool::Renderer.copyright "MultiTorial", "Todos los derechos reservados"
     end
