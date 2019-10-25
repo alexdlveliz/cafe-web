@@ -1,11 +1,10 @@
-<h1>Hi, <%= current_user.first_name %></h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<h1>Productos</h1>
-<%= @products.inspect %>
-
-<h1>Órdenes</h1>
-<%= @orders.inspect %>
-
-<h1>Eventos</h1>
-<%= @events.inspect %>
+<div class="inner cover">
+    <h1 class="cover-heading text-home-titulo">Bienvenido</h1>
+    <p class="lead">
+        <p class="text-home-p">Somos un café enfocado en el impulso del talento extranjero y nacional, creando experiencia a través de la lectura, 
+        el arte y una buena taza de café.</p>
+    </p>
+    <p class="lead lead-ordena-aqui">
+        <%= link_to "Ordena aquí", new_order_path, class: 'btn btn-lg btn-secondary  ' %>
+    </p>
+</div>

@@ -17,15 +17,12 @@
     <p class="alert"><%= alert %></p>
 
     <%# div para el menú de navegación %>
-    <%= render "shared/nav", location: 'top' %>
-
-    <%# Condición para mostrar el login o el logout %>
-    <%= login_helper %>
+    <%= render "shared/application_nav" %>
     
     <%# Permite conectar con cualquier otro archivo html%>
     <%= yield %>
 
     <%# Partial para mostrar el copyright %>
-    <%= copyright_generator %>
+    <%= render "shared/application_footer" %>
   </body>
 </html>

@@ -16,16 +16,13 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     
-    <%# Llamando al partial llamado nav %>
-    <%= render "shared/nav", location: 'top' %>
-
-    <%# Llamando a un método helper %>
-    <%= login_helper %>
+    <%# Llamando al partial llamado application_nav %>
+    <%= render "shared/application_nav" %>
     
     <%# Permite conectar con cualquier otro archivo html%>
     <%= yield %>
 
-    <%# Partial para mostrar el copyright %>
-    <%= copyright_generator %>
+    <%# Llamando al partial llamado application_footer %>
+    <%= render "shared/application_footer" %>
   </body>
 </html>

@@ -1,6 +1,17 @@
 @import "bootstrap";
 @import "font-awesome";
 
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #fff;
+  border: .05rem solid #fff;
+}
+
 html,
 body {
   height: 100%;
@@ -10,7 +21,7 @@ body {
   text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
 }
 
-#background {    
+#background {
     position: fixed;
     top: 0%;
     left: 0%;
@@ -211,6 +222,32 @@ i{
       width: 55rem;
     }
   }
+
+  /*
+ * Cover
+ */
+
+.cover {
+  padding: 0 1.5rem;
+}
+.cover .btn-lg {
+  padding: .75rem 1.25rem;
+  font-weight: bold;
+}
+
+.text-home-titulo{
+  text-align: center;
+  font-size: 3.5rem;
+}
+
+.text-home-p{
+  text-align: center;
+  font-size: 1.50rem;
+}
+
+.lead-ordena-aqui{
+  text-align: center;
+}
 
   /*
  * Footer
