@@ -1,9 +1,7 @@
 <%# Datos a mostrar de cada evento %>
-<p><%= link_to events_item.name, event_path(events_item) %></p>
-<%# Mostrar la imagen del evento, a menos que la imagen no exista %>
-<%= image_tag event_img((events_item.thumb_image), 'thumb').to_s %>
-<%= link_to "Editar", edit_event_path(events_item) %>
-<%= link_to events_item.status, toggle_status_event_path(events_item) %>
-<%= link_to 'Borrar evento', event_path(events_item), method: :delete, data: { confirm: 'Are you sure?' } %>
-<p><%= events_item.description %></p>
-<p><%= events_item.date_event %></p>
+<div class="card">
+    <%= image_tag event_img((events_item.thumb_image), 'thumb').to_s %>
+    <p class="card-text">
+        <span><%= link_to events_item.name, event_path(events_item) %></span>
+    </p>
+</div>
