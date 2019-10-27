@@ -47,8 +47,17 @@ module ApplicationHelper
         #tag_type es para la etiqueta de HTML
     def nav_helper style, tag_type
         nav_links = ''
+        #Ciclo para recorrer el has 'nav_items'
         nav_items.each do |item|
-            nav_links << "<#{tag_type}><a href='#{item[:url]}' class='#{style} #{active? item[:url]}'>#{item[:title]}</a></#{tag_type}>"
+            #Si el título es 'Venta' u 'Órdenes' solo muestre esos paths cuando el usuario que esté ingresado sea un 'site_admin'
+            #Si es otro tipo de usuario, no los muestre
+            if item[:title].include?("Venta") || item[:title].include?("Órdenes")
+                if logged_in?(:site_admin)
+                    nav_links << "<#{tag_type}><a href='#{item[:url]}' class='#{style} #{active? item[:url]}'>#{item[:title]}</a></#{tag_type}>"
+                end
+            else
+                nav_links << "<#{tag_type}><a href='#{item[:url]}' class='#{style} #{active? item[:url]}'>#{item[:title]}</a></#{tag_type}>"
+            end
         end
         nav_links.html_safe
     end
