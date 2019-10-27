@@ -19,7 +19,7 @@
     <%= render "shared/event_nav" %>
     
     <%# Llamando al partial llamado event_masthead para el masthead %>
-    <%= render "shared/event_masthead" %>
+    <%= render "shared/event_masthead" unless logged_in?(:site_admin) %>
     <%# Permite conectar con cualquier otro archivo html%>
     <%= yield %>
 
