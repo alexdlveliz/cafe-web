@@ -24,4 +24,8 @@ class Event < ApplicationRecord
     scope :draft_events, -> { draft }
     scope :published_events, -> { published }
 
+    def self.by_position
+        order("position ASC")
+    end
+
 end

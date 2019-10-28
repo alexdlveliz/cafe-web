@@ -3,7 +3,8 @@ class EventsController < ApplicationController
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
 
   def index
-    @events_items = Event.all
+    #Ordenar los eventos por su posición, ascendentemente
+    @events_items = Event.by_position
     @page_title = "Cafe Web | Eventos"
     #@events_items = Event.published -> Si se quiere mostrar solo los eventos públicos
     #@events_items = Event.draft -> Si se quiere mostrar solo los eventos privados
