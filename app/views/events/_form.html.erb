@@ -1,4 +1,9 @@
-<%= form_with(model: @events_item, local: true) do |form| %>
+<%= form_for(@events_item) do |form|%>
+  <% if @events_item.errors.any? %>
+    <% @events_item.errors.full_messages.each do |error| %>
+      <%= js add_gritter(error, title: "Maybe Enjoy?", sticky: false) %>
+    <% end %>
+  <% end %>
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">

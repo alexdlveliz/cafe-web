@@ -1,0 +1,8 @@
+<%# Si algo sucede el flash será seteado, de una página a otra %>
+<% if flash[:alert] %>
+    <%= js add_gritter(flash[:alert], title: "Maybe Enjoy?", sticky: false) %>
+<% elsif flash[:error] %>
+    <%= js add_gritter(flash[:error], title: "Maybe Enjoy?", sticky: false) %>
+<% else  %>
+    <%= js add_gritter(flash[:notice], title: "Maybe Enjoy?", sticky: false) %>
+<% end %>
