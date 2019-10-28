@@ -17,7 +17,7 @@
 
 <p>
   <strong>Imagen:</strong>
-  <%= image_tag (@product.imgProduct).to_s %>
+  <%= image_tag product_img((@product.imgProduct), 'imgProduct').to_s %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
