@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
   layout "event"
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
-  skip_before_action :verify_authenticity_token
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :sort]}, site_admin: :all
 
   def index
     #Ordenar los eventos por su posición, ascendentemente
