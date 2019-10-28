@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   layout "event"
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
+  skip_before_action :verify_authenticity_token
 
   def index
     #Ordenar los eventos por su posición, ascendentemente
@@ -8,6 +9,16 @@ class EventsController < ApplicationController
     @page_title = "Cafe Web | Eventos"
     #@events_items = Event.published -> Si se quiere mostrar solo los eventos públicos
     #@events_items = Event.draft -> Si se quiere mostrar solo los eventos privados
+  end
+
+  #Método para realizar el 'sortable' de los eventos
+  def sort
+    params[:order].each do |key, value|
+      Event.find(value[:id]).update(position: value[:position])
+    end
+
+    #No redirigir a ningún template
+    render body: nil
   end
 
   def new

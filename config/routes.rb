@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     member do
       get :toggle_status
     end
+    put :sort, on: :collection
   end
 
   #Se personaliza la ruta para el menú y para los eventos

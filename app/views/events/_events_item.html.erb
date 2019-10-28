@@ -1,5 +1,5 @@
 <%# Datos a mostrar de cada evento %>
-<div class="card">
+<div class="card" data-id="<%= events_item.id %>">
     <%= image_tag event_img((events_item.thumb_image), 'thumb').to_s %>
     <p class="card-text">
         <span><%= link_to events_item.name, event_path(events_item) %></span>
