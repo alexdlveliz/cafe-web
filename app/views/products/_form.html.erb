@@ -1,7 +1,7 @@
 <%= form_with(model: product, local: true) do |form| %>
   <% if product.errors.any? %>
     <% product.errors.full_messages.each do |error| %>
-      <%= js add_gritter(error, title: "Maybe Enjoy?", sticky: false) %>
+      <%= alert_generator error %>
     <% end %>
   <% end %>
 

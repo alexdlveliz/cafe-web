@@ -67,4 +67,23 @@ module ApplicationHelper
         #Retornar 'active' si la current_path es igual al parámetro 'path'
         "active" if current_page? path 
     end
+
+    #Método para las alertas (las notificaciones con gritter)
+    def alerts
+        #Básicamente lo que hace es:
+            #¿El flash es una alerta? sino
+            #¿El flash es un error? sino
+            #¿El flash es una notificación? sino
+            #Retorna nulo
+        alert = (flash[:alert] || flash[:error] || flash[:notice])
+
+        if alert
+            alert_generator alert 
+        end
+    end
+
+    #Método visible para todos los modelos
+    def alert_generator msg
+        js add_gritter(msg, title: "Maybe Enjoy?", sticky: false)
+    end
 end
