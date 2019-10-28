@@ -6,4 +6,7 @@ class Product < ApplicationRecord
 
     #Validar que los siguientes campos estén sí o sí al momento de agregar un nuevo producto
     validates_presence_of :name, :price, :description
+
+    #Uploader para poner las imágenes desde AWS
+    mount_uploader :imgProduct, ProductUploader
 end
