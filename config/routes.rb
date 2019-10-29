@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   
-  resources :comments
   #Se le da una ruta personalizada a las rutas que trae por default 'devise'
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   
-  #Método para cambiar la ruta a un evento si se pasa de público a privado
   resources :events do 
+    #Método para cambiar la ruta a un evento si se pasa de público a privado
     member do
       get :toggle_status
     end
@@ -26,6 +25,8 @@ Rails.application.routes.draw do
   resources :products, except: [:show]
   resources :orders, except: [:show]
   
+  mount ActionCable.server => '/cable'
+
   #Se indica la página principal
   root to: 'pages#home' 
 
