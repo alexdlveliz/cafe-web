@@ -13,8 +13,9 @@
 
         <div class="col-md-7">
             <%= render "comments/comments_form" %>
-
-            <%= render @events_item.comments %>
+            <div id="comments" data-event-id="<%= @events_item.id %>">
+                <%= render @events_item.comments %>
+            </div>
         </div>
     </div>
 </div>
