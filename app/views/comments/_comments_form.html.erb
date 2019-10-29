@@ -1,0 +1,11 @@
+<%# No mostrar el contenido si el usuario es un GuestUser%>
+<% unless current_user.is_a?(GuestUser)%>
+    <%= form_for @comment, url: '#' do |f| %>
+        <div class="form-group">
+            <%= f.label :Contenido %>
+            <%= f.text_area :content, class: 'form-control' %>
+        </div>
+
+        <%= f.submit 'Comentar', class: 'btn btn-primary' %>
+    <% end %>
+<% end %>

@@ -12,23 +12,9 @@
         </div>
 
         <div class="col-md-7">
-            <!-- Start of comment form -->
-            <%# No mostrar el contenido si el usuario es un GuestUser%>
-            <% unless current_user.is_a?(GuestUser)%>
-                <%= form_for @comment, url: '#' do |f| %>
-                    <div class="form-group">
-                        <%= f.label :Contenido %>
-                        <%= f.text_area :content, class: 'form-control' %>
-                    </div>
+            <%= render "comments/comments_form" %>
 
-                    <%= f.submit 'Comentar', class: 'btn btn-primary' %>
-                <% end %>
-            <% end %>
-            <!-- End of comment form -->
-
-            <!-- Start of comments -->
             <%= render @events_item.comments %>
-            <!-- End of comments -->
         </div>
     </div>
 </div>
