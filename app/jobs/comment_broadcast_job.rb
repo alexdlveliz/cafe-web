@@ -1,4 +1,4 @@
-class CommentBroadCastJob < ApplicationJob
+class CommentBroadcastJob < ApplicationJob
    #Significa que queremos tener una lista. En este caso, una lista de comentarios
    queue_as :default
 

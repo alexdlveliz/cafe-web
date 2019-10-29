@@ -1,17 +1,13 @@
-#Se realiza una conexión directa con turbolinks.
-#turbolinks carga todo el sistema en sí
 jQuery(document).on 'turbolinks:load', ->
-  #Busca un id llamado 'comments'
   comments = $('#comments')
   if comments.length > 0
-    App.global_chat = App.cable.subscriptions.create{
+    App.global_chat = App.cable.subscriptions.create {
       channel: "EventsChannel"
       event_id: comments.data('event-id')
     },
     connected: ->
     disconnected: ->
-    #Al recibir data, se van a concatenar todos los comentarios
-    recieved: (data) ->
+    received: (data) ->
       comments.append data['comment']
     send_comment: (comment, event_id) ->
       @perform 'send_comment', comment: comment, event_id: event_id
