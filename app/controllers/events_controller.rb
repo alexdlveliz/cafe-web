@@ -52,8 +52,13 @@ class EventsController < ApplicationController
   end
 
   def show
+    #Incluir los comentarios del evento al momento de cargar el evento
+    @events_item = Event.includes(:comments).friendly.find(params[:id])
+    #Instanciar un nuevo comentario
+    @comment = Comment.new
+    #Ponerle un título a la página en la que se está
     @page_title = Event.friendly.find(params[:id]).name
-    @events_item = Event.friendly.find(params[:id])
+    
   end
 
   def destroy
