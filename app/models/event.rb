@@ -12,6 +12,11 @@ class Event < ApplicationRecord
     #Validar los datos que deben tener los eventos para poder ser creados
     validates_presence_of :name, :description
 
+    #Relación con los comentarios.
+    #dependent: :destroy hace lo siguiente:
+        #Si un evento se borra, también se borrarán los comentarios de ese evento
+    has_many :comments, dependent: :destroy
+
     #método provisto por la gema carrierwave para poder utilizar las imágenes de AWS
     mount_uploader :thumb_image, EventUploader
     mount_uploader :main_image, EventUploader

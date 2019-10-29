@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :comments
   #Se le da una ruta personalizada a las rutas que trae por default 'devise'
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   

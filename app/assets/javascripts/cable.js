@@ -8,6 +8,7 @@
 (function() {
   this.App || (this.App = {});
 
+  //Se crea una instancia de ActionCable
   App.cable = ActionCable.createConsumer();
 
 }).call(this);

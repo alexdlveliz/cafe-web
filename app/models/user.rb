@@ -15,6 +15,11 @@ class User < ApplicationRecord
 
   validates_presence_of :name
 
+  #Relación con los comentarios.
+  #dependent: :destroy hace lo siguiente:
+    #Si un usuario que ya comentó borra su cuenta, también se borrarán sus comentarios
+  has_many :comments, dependent: :destroy
+
   #Métodos para separar el nombre del apellido del usuario
   def first_name
     self.name.split.first
