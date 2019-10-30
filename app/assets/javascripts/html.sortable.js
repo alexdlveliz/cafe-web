@@ -1,4 +1,7 @@
 /*
+Archivo utilizado para poder hacer el drag and drop en los eventos
+*/
+/*
  * HTML5Sortable package
  * https://github.com/lukasoppermann/html5sortable
  *

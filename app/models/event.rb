@@ -29,6 +29,7 @@ class Event < ApplicationRecord
     scope :draft_events, -> { draft }
     scope :published_events, -> { published }
 
+    #Método para ordenar los eventos en orden ascendente
     def self.by_position
         order("position ASC")
     end
