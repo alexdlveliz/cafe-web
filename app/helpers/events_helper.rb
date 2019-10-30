@@ -12,4 +12,8 @@ module EventsHelper
             image_generator(height: '600', width: '400')
         end
     end
+
+    def gravatar_helper user
+        image_tag "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email)}", width: 60
+    end
 end
