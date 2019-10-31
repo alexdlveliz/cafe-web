@@ -4,5 +4,7 @@
         <%# Recorrer cada evento y mostrarlo en pantalla %>
         <%= render partial: 'events_item', collection:  @events_items %>
     </div>
+
+    <%= link_to 'Crear Nuevo evento', new_event_path(@events_item) if logged_in?(:site_admin) %>
   </div>
 </div>
