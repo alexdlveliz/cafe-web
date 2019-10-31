@@ -16,7 +16,7 @@ puts "25 products created"
         description: "Descripción para el evento #{event}",
         main_image: "http://placehold.it/600x400",
         thumb_image: "http://placehold.it/350x200",
-        date_event: Time.now,
+        date_event: Time.now.strftime("%d-%m-%Y %H:%M"),
         status: 0
     )
 end

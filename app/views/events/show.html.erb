@@ -7,7 +7,7 @@
             <h1><%= @events_item.name.upcase %></h1>
             <hr>
             <p><%= @events_item.description %></p>
-            <p><%= @events_item.date_event %></p>
+            <p><%= @events_item.date_event.strftime("%d-%m-%Y %H:%M") %></p>
             <%= link_to 'Editar', edit_event_path(@events_item) if logged_in?(:site_admin) %>
         </div>
 

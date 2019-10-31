@@ -1,9 +1,10 @@
-<tr>
-    <td><%= product.name %></td>
-    <td><%= product.price %></td>
-    <td><%= product.description %></td>
-    <td><%= image_tag product_img((product.imgProduct), 'imgProduct').to_s %></td>
-    <td><%= link_to 'Show', product_show_path(product) %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) if logged_in?(:site_admin) %></td>
-    <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin) %></td>
-</tr>
+<div class="card">
+    <%= image_tag product_img((product.imgProduct), 'imgProduct').to_s %>
+    <p class="card-text">
+        <p><%= link_to product.name, product_show_path(product) %></span>
+    </p>
+</div>
+
+<%# link_to 'Show', product_show_path(product) %>
+<%# link_to 'Edit', edit_product_path(product) if logged_in?(:site_admin) %>
+<%# link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin) %>
