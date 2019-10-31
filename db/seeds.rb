@@ -33,5 +33,3 @@ puts "9 events created"
 end
 
 puts "15 sells created"
-
-

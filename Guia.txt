@@ -1,3 +1,6 @@
+Para modificar los tipos de datos que las tablas, visité el siguiente link:
+	https://tosbourn.com/rails-migrate-change-column-type/
+
 Para crear los modelos hice lo siguiente:
 	rails g scaffold Product name:string price:float description:text
 	rails g scaffold Sell sell_date:date total:float 

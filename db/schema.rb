@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_29_011537) do
+ActiveRecord::Schema.define(version: 2019_10_31_044008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_10_29_011537) do
     t.string "description"
     t.text "main_image"
     t.text "thumb_image"
-    t.date "date_event"
+    t.datetime "date_event"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2019_10_29_011537) do
   end
 
   create_table "sells", force: :cascade do |t|
-    t.date "sell_date"
+    t.datetime "sell_date"
     t.float "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

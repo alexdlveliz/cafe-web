@@ -30,5 +30,7 @@ module CafeWeb
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    #Se configura la zona horaria de la región
+    config.time_zone = "Central America"
   end
 end
