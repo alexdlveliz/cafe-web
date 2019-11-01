@@ -1,22 +1,54 @@
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+<div class="card mb-3" style="max-width: 900px; margin-left: auto; margin-right: auto;">
+  <div class="row no-gutters">  
+    <div class="col-md-4">
+      <%= image_tag product_img((@product.imgProduct), 'imgProduct').to_s, style: "width: 100%;" %>
+    </div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h3 class="card-title">
+          <%= @product.name %>
+        </h3>
+        <p class="card-text">
+          <%= @product.description %>
+        </p>
+        <p class="card-text">
+          <%= "Q. " + "#{@product.price}" %>
+        </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+        <%= link_to 'Edit', edit_product_path(@product) if logged_in?(:site_admin) %> |
+        <%= link_to 'Back', products_path %>
+      </div>
+    </div>    
+  </div>
+</div>
 
-<p>
-  <strong>Imagen:</strong>
-  <%= image_tag product_img((@product.imgProduct), 'imgProduct').to_s %>
-</p>
+<!-- 
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-7">
+        <h3 class="card-text">
+          <%= @product.name %>
+        </h3>
+        <p class="card-text">
+          <%= @product.description %>
+        </p>
+        <p class="card-text">
+          <%= @product.price %>
+        </p>
+      </div>
 
-<%= link_to 'Edit', edit_product_path(@product) if logged_in?(:site_admin) %> |
-<%= link_to 'Back', products_path %>
+      <div class="col-md-5">
+        <%= image_tag product_img((@product.imgProduct), 'imgProduct').to_s %>
+      </div>
+
+      <div class="col-12">
+        <%= link_to 'Edit', edit_product_path(@product) if logged_in?(:site_admin) %> |
+        <%= link_to 'Back', products_path %>
+      </div>
+    
+  </div>
+</div>
+-->
+

@@ -1,7 +1,7 @@
 <div class="contenedor-productos">
   <div class="row py-4">
       <% @products.each do |product| %>
-        <div class="card">
+        <div class="card-product">
           <div class="card-img-top">
             <%= image_tag product_img((product.imgProduct), 'imgProduct').to_s, style: 'width: 100%;' %>
           </div>
