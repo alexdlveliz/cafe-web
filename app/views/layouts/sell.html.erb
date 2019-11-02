@@ -12,15 +12,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <body>    
+    <%# Llamando al partial llamado application_nav %>
+    <%= render "shared/application_nav" %>
     
     <%# Permite conectar con cualquier otro archivo html%>
     <%= yield %>
-
-    <%# Llamando al partial llamado application_nav %>
-    <%= render "shared/application_nav" %>
 
     <%# Llamando al partial llamado application_footer %>
     <%= render "shared/application_footer" %>

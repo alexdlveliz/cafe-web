@@ -1,3 +1,4 @@
+
 <%= form_with(model: sell, local: true) do |form| %>
   <% if sell.errors.any? %>
     <% sell.errors.full_messages.each do |error| %>
@@ -5,17 +6,24 @@
     <% end %>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :sell_date %>
     <%= form.date_select :sell_date %>
   </div>
 
-  <div class="field">
-    <%= form.label :total %>
-    <%= form.text_field :total %>
+  <div class="form-group">
+    <%# f.select :marca_id, options_from_collection_for_select(Marca.all, :id, :nombre) %>
+    <%= form.label :Producto %>
+    <%= form.select :product, products_drinks %>
+  </div>
+    
+  <div class="form-group">
+    <%# f.select :marca_id, options_from_collection_for_select(Marca.all, :id, :nombre) %>
+    <%= form.label :Producto %>
+    <%= form.select :product, products_food %>
   </div>
 
-  <div class="actions">
+  <div class="form-group">
     <%= form.submit %>
   </div>
 <% end %>

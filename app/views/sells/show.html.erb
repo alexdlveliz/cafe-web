@@ -10,5 +10,14 @@
   <%= @sell.total %>
 </p>
 
+<p>
+  <strong>Productos:</strong>
+  <% @sell.products.each do |product| %>
+    <%= product.name %>
+    <%= product.price %>
+    <%= product.description %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_sell_path(@sell) %> |
 <%= link_to 'Back', sells_path %>

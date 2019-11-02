@@ -1,12 +1,24 @@
 #Crear 25 productos de prueba
-25.times do |product|
+14.times do |product|    
     Product.create!(
         name: "Product #{product}", 
         price: rand(1.5...50.50).round(2),
         description: "Product #{product} description",
-        imgProduct: "http://placehold.it/300x300"
+        imgProduct: "http://placehold.it/300x300",
+        type_product: 0
     )
 end
+
+15.times do |product|    
+    Product.create!(
+        name: "Product #{(product+15)}", 
+        price: rand(1.5...50.50).round(2),
+        description: "Product #{(product+15)} description",
+        imgProduct: "http://placehold.it/300x300",
+        type_product: 1
+    )
+end
+
 puts "25 products created"
 
 #Crear 9 eventos 
@@ -26,10 +38,15 @@ puts "9 events created"
 #Crear 15 ventas de prueba
 15.times do |sell|
     Sell.create!(
-        sell_date: Time.now.to_formatted_s(:date), 
-        total: rand(150.50...500.00).round(2),
-        products: [Product.first, Product.last]
+        sell_date: Time.now,
+        total: 0.0
     )
+    Sell.last.products << Product.first
+    Sell.last.products << Product.last
+    Sell.last.orders.first.update_attributes(quantity: 1)
+    Sell.last.orders.last.update_attributes(quantity: 1)
+    Sell.last.update!(total: Sell.last.total + (Sell.last.products.first.price*Sell.last.orders.first.quantity))
+    Sell.last.update!(total: Sell.last.total + (Sell.last.products.last.price*Sell.last.orders.last.quantity))
 end
 
 puts "15 sells created"

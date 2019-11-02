@@ -6,5 +6,5 @@ class Sell < ApplicationRecord
     has_many :products, through: :orders
 
     #Validar que los siguientes campos deben existir sí o sí para poder guardar una venta
-    validates_presence_of :sell_date, :total
+    validates_presence_of :sell_date
 end
