@@ -5,7 +5,7 @@ ready = ->
       "Somos un café enfocado en el impulso del talento extranjero y nacional, creando experiencia a través de la lectura, 
       el arte y una buena taza de café."
     ]
-    typeSpeed: 0
+    typeSpeed: 20
   return
 
 $(document).ready ready

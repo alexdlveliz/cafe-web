@@ -41,3 +41,25 @@ Consultas para las ventas y órdenes:
 	Sell.first.products.count -> Cuenta cuantos productos hay en una venta
 	Sell.last.orders -> Muestra las órdenes que hay en una venta
 
+Métodos para las ventas:
+	Ingresar productos a una nueva orden:
+		1. Crear el producto. En nuestro caso los productos ya van a estar creados, 
+		por lo que este paso nos lo saltamos:
+			egg = Product.create!(name: "huevo", price: 1.25, description: "huevo grande")
+		2. Se crea la orden:
+			sell = Sell.create!(sell_date: Time.now, total: 0.0)
+		3. Se ingresa a la orden el producto seleccionado:
+			sell.products << egg
+		4. Se actualiza la cantidad pedida de dicho producto
+			sell.orders.last.update_attributes(quantity: 1)
+		5. Se actualiza el total de la venta:
+			sell.update!(total: sell.total + (egg.price*sell.orders.last.quantity))
+	
+	Editar cantidad con venta ya ingresada, y productos ya ingresados a la venta
+		1. Se actualiza la cantidad pedida de dicho producto
+			sell.orders.last.update_attributes(quantity: 1)
+		2. Se actualiza el total de la venta:
+			sell.update!(total: sell.total + (egg.price*sell.orders.last.quantity))
+
+Ejemplos para many-to-many relationship:
+http://www.xyzpub.com/en/ruby-on-rails/3.2/ar-many_to_many.html
