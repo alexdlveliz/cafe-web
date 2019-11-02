@@ -2,7 +2,7 @@
 25.times do |product|
     Product.create!(
         name: "Product #{product}", 
-        price: rand(1.5...50.50),
+        price: rand(1.5...50.50).round(2),
         description: "Product #{product} description",
         imgProduct: "http://placehold.it/300x300"
     )
@@ -27,7 +27,7 @@ puts "9 events created"
 15.times do |sell|
     Sell.create!(
         sell_date: Time.now.to_formatted_s(:date), 
-        total: rand(150.50...500.00),
+        total: rand(150.50...500.00).round(2),
         products: [Product.first, Product.last]
     )
 end

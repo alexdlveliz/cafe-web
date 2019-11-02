@@ -35,3 +35,9 @@ Para crear la relación entre order y sell:
 	o.sell
 
 	Sell.last.orders
+
+Consultas para las ventas y órdenes:
+	Sell.first.products.sum(:price) -> Suma los precios de todos los productos en un venta
+	Sell.first.products.count -> Cuenta cuantos productos hay en una venta
+	Sell.last.orders -> Muestra las órdenes que hay en una venta
+
