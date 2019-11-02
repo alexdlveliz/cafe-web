@@ -16,6 +16,7 @@
 html,
 body {
   height: 100%;
+  font-family: 'Josefin Slab', serif;
 }
 body {
   color: #fff;
@@ -171,6 +172,10 @@ i{
   .inner {
     padding: 2rem;
   }
+
+  .inner-footer{
+    padding: 0.1rem;
+  }
   
   
   /*
@@ -183,6 +188,7 @@ i{
   
   .masthead-brand {
     margin-bottom: 0;
+    font-weight: bold;
   }
   
   .nav-masthead .nav-link {
@@ -239,6 +245,7 @@ i{
 .text-home-titulo{
   text-align: center;
   font-size: 3.5rem;
+  font-weight: bold;
 }
 
 .text-home-p{

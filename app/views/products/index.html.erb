@@ -1,5 +1,8 @@
 <div class="contenedor-productos">
   <div class="row py-4">
+      <div class="col-12">
+        <%= link_to "Crear producto", new_product_path if logged_in?(:site_admin) %>
+      </div>
       <% @products.each do |product| %>
         <div class="card-product">
           <div class="card-img-top">
