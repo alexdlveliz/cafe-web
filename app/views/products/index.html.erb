@@ -9,12 +9,11 @@
         <div class="tarjeta-wrap">
           <div class="tarjeta">
             <div class="adelante">
-              <%image_tag "#{product.imgProduct}"%>
+              <%= image_tag (product.imgProduct).to_s, style: 'widht: 100%;'%>
             </div>
             <div class="atras">
               <div class="texto">
-                <h2><%= product.name %></h2>
-                <h3>Descripción</h3>
+                <h2><%= link_to product.name, product_show_path(product) %></h2>
                 <p><%= product.description %></p>
                 <h4><%= "Q. " + "#{product.price}" %></h4>
               </div>
