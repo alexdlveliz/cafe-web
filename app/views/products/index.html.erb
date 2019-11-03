@@ -6,15 +6,19 @@
         <% end%>
       </div>
       <% @products.each do |product| %>
-        <div class="card-product">
-          <div class="card-img-top">
-            <%= image_tag product_img((product.imgProduct), 'imgProduct').to_s, style: 'width: 100%;' %>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title"><%= product.name %></h3>
-            <p class="card-text"><%= product.description %></p>
-            <p class="card-text"><%= "Q. " + "#{product.price}" %></p>
-            <%= link_to "Detalles", product_show_path(product), class: "btn btn-sm btn-primary" %>
+        <div class="tarjeta-wrap">
+          <div class="tarjeta">
+            <div class="adelante">
+              <%image_tag "#{product.imgProduct}"%>
+            </div>
+            <div class="atras">
+              <div class="texto">
+                <h2><%= product.name %></h2>
+                <h3>Descripción</h3>
+                <p><%= product.description %></p>
+                <h4><%= "Q. " + "#{product.price}" %></h4>
+              </div>
+            </div>
           </div>
         </div>
       <% end%>
