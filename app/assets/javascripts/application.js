@@ -16,6 +16,7 @@
 //= require popper
 //= require activestorage
 //= require html.sortable
+//= require cocoon
 //= require gritter
 //= require lib/typed
 //= require typed-implementation

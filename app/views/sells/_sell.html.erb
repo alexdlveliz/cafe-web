@@ -1,5 +1,5 @@
 <tr>
-    <td><%= sell.sell_date.strftime("%d-%m-%Y %H:%M") %></td>
+    <td><%= sell.sell_date.strftime("%d-%m-%Y") %></td>
     <td><%= sell.total %></td>
     <td><%= link_to 'Show', sell_show_path(sell) %></td>
     <td><%= link_to 'Edit', edit_sell_path(sell) %></td>

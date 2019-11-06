@@ -1,0 +1,8 @@
+<div class="form-group">
+    <%= f.collection_select(:name, Product.all,  :id, :name,  
+                            { 
+                             :prompt => "Seleccione uno"
+                            }
+                            ) 
+    %>
+</div>

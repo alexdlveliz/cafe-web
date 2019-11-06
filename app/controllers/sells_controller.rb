@@ -18,7 +18,7 @@ class SellsController < ApplicationController
     @sell = Sell.new
     #byebug
     #@sell.products.new
-    3.times {@sell.products.build}
+    #3.times {@sell.products.build}
 
   end
 
@@ -38,8 +38,16 @@ class SellsController < ApplicationController
       cont = 0
       #Recorro el array 'sell_params' para tomar el id de los productos
       sell_params[:products_attributes].each do |venta|
-        temp[cont] = Product.find(sell_params[:products_attributes][:"#{cont}"][:name])
+        #Se convierte a un hash el sell_params[:products_attributes]
+        value = sell_params[:products_attributes].to_h
+        #se toma la key del hash
+        value = value.keys
+        #se toma el valor que tiene la key del hash
+        value = value[cont]
+        #byebug
+        temp[cont] = Product.find(sell_params[:products_attributes][:"#{value}"][:name])
         cont+=1
+        #byebug
       end
 
       #byebug
