@@ -18,7 +18,7 @@ class SellsController < ApplicationController
     @sell = Sell.new
     #byebug
     #@sell.products.new
-    1.times {@sell.products.build}
+    3.times {@sell.products.build}
 
   end
 
@@ -33,21 +33,38 @@ class SellsController < ApplicationController
     #byebug
 
     respond_to do |format|
-      temp = Product.find(sell_params[:products_attributes][:"0"][:name])
+      #Almacenar en un array 'temp' los productos seleccionados en los select_collection
+      temp = []
+      cont = 0
+      #Recorro el array 'sell_params' para tomar el id de los productos
+      sell_params[:products_attributes].each do |venta|
+        temp[cont] = Product.find(sell_params[:products_attributes][:"#{cont}"][:name])
+        cont+=1
+      end
+
+      #byebug
+      #temp = Product.find(sell_params[:products_attributes][:"0"][:name])
       #byebug
       #@sell.products.each do |product|
         #Product.find_by(name: product.name)
         #byebug()
       #end
-      #byebug
+      #Se borra la venta para solo tomar los productos seleccionados
       @sell.products.destroy_all
-      #byebug
+      #Se ingresa a la venta sólo los productos seleccionados
       @sell.products << temp
-      Sell.last.update!(total: 0.0)
-      Sell.last.orders.first.update_attributes(quantity: 1)
-      Sell.last.update!(total: Sell.last.total + (Sell.last.products.first.price * Sell.last.orders.first.quantity))
-      #byebug
+      
       if @sell.save
+        pos = 0
+        @sell.update!(total: 0.0)
+        #Recorro el array temp, acá podría recorrer el array 'sell_params'
+        temp.each do |ciclo|
+          #El ciclo permite actualizar la cantidad de producto comprado y
+          #actualizar el total de la venta
+          @sell.orders[pos].update_attributes(quantity: 1)
+          @sell.update!(total: @sell.total + (@sell.products[pos].price * @sell.orders[pos].quantity))
+          pos+=1
+        end
         format.html { redirect_to sells_path, notice: 'Sell was successfully created.' }
         format.json { render :show, status: :created, location: @sell }
       else
