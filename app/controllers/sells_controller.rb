@@ -6,6 +6,7 @@ class SellsController < ApplicationController
   # GET /sells.json
   def index
     @sells = Sell.all
+    
   end
 
   # GET /sells/1
@@ -114,7 +115,7 @@ class SellsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sell_params
-      params.require(:sell).permit(:sell_date, :total,  products_attributes: [:name, :id])
+      params.require(:sell).permit(:sell_date, :total,  products_attributes: [:name, :id, :_destroy])
       #params.require(:sell).permit(:sell_date, :total, products_attributes: [:name, :price, :description])
     end
     

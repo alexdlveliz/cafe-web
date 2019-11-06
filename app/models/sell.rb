@@ -7,7 +7,8 @@ class Sell < ApplicationRecord
 
     #Aceptar productos.
     #No acepte el producto si el campo nombre está vacío
-    accepts_nested_attributes_for :products, 
+    accepts_nested_attributes_for   :products,
+                                    allow_destroy: true,
                                     reject_if: lambda { |attrs| attrs['name'].blank? }
 
     #Validar que los siguientes campos deben existir sí o sí para poder guardar una venta
