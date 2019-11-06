@@ -1,5 +1,5 @@
 
-<%= form_with(model: sell, local: true) do |form| %>
+<%= form_for @sell do |form| %>
   <% if sell.errors.any? %>
     <% sell.errors.full_messages.each do |error| %>
       <%= alert_generator error %>
@@ -11,17 +11,16 @@
     <%= form.date_select :sell_date %>
   </div>
 
-  <div class="form-group">
-    <%# f.select :marca_id, options_from_collection_for_select(Marca.all, :id, :nombre) %>
-    <%= form.label :Producto %>
-    <%= form.select :product, products_drinks %>
-  </div>
-    
-  <div class="form-group">
-    <%# f.select :marca_id, options_from_collection_for_select(Marca.all, :id, :nombre) %>
-    <%= form.label :Producto %>
-    <%= form.select :product, products_food %>
-  </div>
+  <%= form.fields_for :products do |product_form| %>
+    <div>
+      <%= product_form.collection_select(:name, Product.all,  :id, :name,  
+                                        { 
+                                          :prompt => "Seleccione uno"
+                                        }
+                                        ) 
+      %>
+    </div>
+  <% end %>
 
   <div class="form-group">
     <%= form.submit %>
