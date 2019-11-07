@@ -1,27 +1,46 @@
-
 <%= form_for @sell do |form| %>
   <% if sell.errors.any? %>
     <% sell.errors.full_messages.each do |error| %>
       <%= alert_generator error %>
     <% end %>
   <% end %>
-
-  <div class="form-group">
-    <%= form.label :sell_date %>
-    <%= form.date_select :sell_date %>
-  </div>
-
-  <%= form.fields_for :products do |product_form| %>
-    <div>
-      <%= render 'product_fields', f: product_form %>
+  
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <div class="form-group">
+        <%= form.label :Fecha %>
+        <%= form.date_select :sell_date %>
+      </div>
     </div>
-  <% end %>
 
-  <div>
-    <%= link_to_add_association 'Agregar Producto', form, :products %>
+    <div class="col-12 col-md-6">
+      <div class="form-group">
+        <%= form.label :Mesa %>
+        <%= form.text_field :table %>
+      </div>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= form.submit %>
+  <div class="row">
+    <div class="col-12 col-md-6 scroll" style="margin-bottom:15px;">
+      <%= form.fields_for :products do |product_form| %>
+        <%= render 'product_fields', f: product_form %>
+      <% end %>
+
+      <div>
+        <%= link_to_add_association 'Agregar Producto', form, :products %>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6">
+      <%= link_to 'Atrás', sells_path %>
+    </div>
   </div>
+
+  <div class="col-12">
+    <div class="form-group">
+      <%= form.submit "Crear Venta", class: 'btn btn-primary btn-block' %>
+    </div>
+  </div>
+  
 <% end %>

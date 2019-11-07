@@ -39,7 +39,8 @@ puts "9 events created"
 15.times do |sell|
     Sell.create!(
         sell_date: Time.now,
-        total: 0.0
+        total: 0.0,
+        table: sell+1
     )
     Sell.last.products << Product.first
     Sell.last.products << Product.last

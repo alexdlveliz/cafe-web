@@ -330,6 +330,62 @@ i{
   margin: 15px;
 }
 
+.card-sell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid
+  rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  width: 100%;
+  margin: 15px;
+  padding: 15px;
+  color: black;
+}
+
+.card-new-sell{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid
+  rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  width: 100%;
+  margin: 15px;
+  padding: 15px;
+  color: black;
+  height: 500px;
+}
+
+.card-show-sell{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid
+  rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  width: 100%;
+  margin: 15px;
+  padding: 15px;
+  color: black;
+}
+
+.scroll {
+  max-height: 300px;
+  overflow-y: auto;
+}
 /* Estilos para los productos */
 .wrap{
   width: auto;
@@ -396,6 +452,8 @@ i{
   font-family: 'Indie Flower', cursive;
 }
 .tarjeta-wrap:hover .tarjeta{
- transform: rotateY(180deg);
- 
+ transform: rotateY(180deg); 
+}
+.container-product{
+  padding-top: 100px;
 }
