@@ -2,7 +2,7 @@
   <div class="row py-4">
     <div class="col-12">
       <% if logged_in?(:site_admin) %>
-        <%= link_to "Crear Venta", new_sell_path, class: 'btn btn-primary' %>
+        <%= link_to "Crear Venta", new_sell_path, class: 'btn btn-primary', style: "font-size:20px;"%>
       <% end %>
     </div>
     <div class="col-12">
@@ -21,7 +21,7 @@
               <h3>Total: </h3>
             </div>
             <div class="col-6">
-              <h3><%= "Q. " + "#{sell.total}" %></h3>
+              <h3><%= "Q" + "#{sell.total}" %></h3>
             </div>
           </div>
           <div class="row">

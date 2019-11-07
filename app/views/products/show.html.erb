@@ -9,17 +9,19 @@
         <h3 class="card-title">
           <%= @product.name %>
         </h3>
-        <p class="card-text">
+        <p class="card-text", style="font-size: 20px;">
           <%= @product.description %>
         </p>
-        <p class="card-text">
+        <p class="card-text", style="font-size: 20px;">
           <%= "Q. " + "#{@product.price}" %>
         </p>
 
-        <%= link_to 'Editar', edit_product_path(@product) if logged_in?(:site_admin) %> 
+        <p  style="font-size: 20px;">
+          <%= link_to 'Editar', edit_product_path(@product) if logged_in?(:site_admin) %>
+        </p>
       </div>
     </div>
   </div>
 </div>
-<%= link_to "Ver todos los productos", products_path, class: 'btn btn-primary'%>
+<%= link_to "Ver todos los productos", products_path, class: 'btn btn-primary', style:"font-size: 20px;"%>
 

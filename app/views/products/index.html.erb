@@ -2,7 +2,7 @@
   <div class="row py-4">
       <div class="col-12">
         <% if logged_in?(:site_admin) %>
-          <%= link_to "Crear producto", new_product_path, class: 'btn btn-primary'%>
+          <%= link_to "Crear producto", new_product_path, class: 'btn btn-primary', style: 'font-size:20px;'%>
         <% end%>
       </div>
       <% @products.each do |product| %>
@@ -15,7 +15,7 @@
               <div class="texto">
                 <h2><%= link_to product.name, product_show_path(product) %></h2>
                 <p><%= product.description %></p>
-                <h4><%= "Q. " + "#{product.price}" %></h4>
+                <h4><%= "Q" + "#{product.price}" %></h4>
               </div>
             </div>
           </div> 
