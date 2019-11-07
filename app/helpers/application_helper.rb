@@ -35,10 +35,6 @@ module ApplicationHelper
                 url: sells_path,
                 title: 'Venta'
             },
-            {
-                url: orders_path,
-                title: 'Órdenes'
-            },
         ]
     end
 
@@ -51,7 +47,7 @@ module ApplicationHelper
         nav_items.each do |item|
             #Si el título es 'Venta' u 'Órdenes' solo muestre esos paths cuando el usuario que esté ingresado sea un 'site_admin'
             #Si es otro tipo de usuario, no los muestre
-            if item[:title].include?("Venta") || item[:title].include?("Órdenes")
+            if item[:title].include?("Venta")
                 if logged_in?(:site_admin)
                     nav_links << "<#{tag_type}><a href='#{item[:url]}' class='#{style} #{active? item[:url]}'>#{item[:title]}</a></#{tag_type}>"
                 end
