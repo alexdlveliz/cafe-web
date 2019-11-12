@@ -2,7 +2,7 @@
 class Order < ApplicationRecord
   #Relaciones con las demás tablas. 
   belongs_to :product
-  belongs_to :sell
+  belongs_to :sell  
 
   
-end
+end 
