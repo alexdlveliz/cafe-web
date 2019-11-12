@@ -1,6 +1,6 @@
 module CurrentUserConcern
     #Este archivo está dentro de la carpeta Concerns, por eso necesitamos incluir lo siguiente
-    extend ActiveSupport::Concern
+    include ActiveSupport::Concern
 
     #Reescribiendo el método current_user
     #null object pattern
