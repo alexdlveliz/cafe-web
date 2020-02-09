@@ -115,7 +115,12 @@ class SellsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sell_params
-      params.require(:sell).permit(:sell_date, :total, :table, products_attributes: [:name, :id, :_destroy])
+      params.require(:sell).permit(:sell_date, 
+                                  :total, 
+                                  :table, 
+                                  products_attributes: [:name, :id, :_destroy],
+                                  orders_attributes: [:quantity]
+                                )
       #params.require(:sell).permit(:sell_date, :total, products_attributes: [:name, :price, :description])
     end
     

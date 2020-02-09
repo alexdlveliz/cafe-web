@@ -1,9 +1,13 @@
 <div class="form-group nested-fields">
-    <%= f.collection_select(:name, Product.all,  :id, :name,  
-                            { 
-                             :prompt => "Seleccione uno"
-                            }
-                            ) 
-    %>
-    <%= link_to_remove_association "Remover Producto", f %>
+  <%= f.collection_select(:name, Product.all,  :id, :name,  
+                          { 
+                            :prompt => "Seleccione uno"
+                          }
+                          ) 
+  %>
+
+  <%= f.fields_for :orders do |order| %>
+    <%= order.text_field :quantity  %>
+  <% end %>
+  <%= link_to_remove_association "Remover", f %>
 </div>

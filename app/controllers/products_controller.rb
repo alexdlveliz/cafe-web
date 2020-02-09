@@ -73,7 +73,8 @@ class ProductsController < ApplicationController
       params.require(:product).permit(:name, 
                                       :price, 
                                       :description,
-                                      :imgProduct
+                                      :imgProduct,
+                                      :orders_attributes[:quantity]
                                     )
     end
 end
