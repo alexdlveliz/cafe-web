@@ -5,7 +5,7 @@ class SellsController < ApplicationController
   # GET /sells
   # GET /sells.json
   def index
-    @sells = Sell.all
+    @sells = Sell.where user_id: current_user.id
     
   end
 
@@ -30,7 +30,8 @@ class SellsController < ApplicationController
   # POST /sells
   # POST /sells.json
   def create
-    @sell = Sell.new(sell_params)
+    #Se le agrega al usuario actual la venta que se ha realizado
+    @sell = current_user.sells.new sell_params
     #byebug
 
     respond_to do |format|
