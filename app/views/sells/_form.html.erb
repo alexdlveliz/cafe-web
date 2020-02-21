@@ -26,7 +26,6 @@
       <%= form.fields_for :products do |product_form| %>
         <%= render 'product_fields', f: product_form %>
       <% end %>
-
       <div>
         <%= link_to_add_association 'Agregar Producto', form, :products %>
       </div>

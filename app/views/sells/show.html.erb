@@ -29,6 +29,10 @@
                         <%= "Precio: " + "Q. " + "#{product.price}" %>
                         <br>
                         <%= "Descripción: " + "#{product.description}" %>
+                        <br>
+                        <% product.orders.each do |order| %>
+                          <%= "Cantidad: " + "#{order.quantity}" %>
+                        <% end %>
                       </div>
                       <div class="col-md-8 text-center">
                         <%= image_tag product.imgProduct.to_s %>

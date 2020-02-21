@@ -38,6 +38,7 @@ class SellsController < ApplicationController
       #Almacenar en un array 'temp' los productos seleccionados en los select_collection
       temp = []
       cont = 0
+      quantity = []
       #Recorro el array 'sell_params' para tomar el id de los productos
       sell_params[:products_attributes].each do |venta|
         #Se convierte a un hash el sell_params[:products_attributes]
@@ -46,10 +47,10 @@ class SellsController < ApplicationController
         value = value.keys
         #se toma el valor que tiene la key del hash
         value = value[cont]
-        #byebug
         temp[cont] = Product.find(sell_params[:products_attributes][:"#{value}"][:name])
+        quantity[cont] = sell_params[:products_attributes][:"#{value}"][:price]
         cont+=1
-        #byebug
+        byebug
       end
 
       #byebug
@@ -71,7 +72,8 @@ class SellsController < ApplicationController
         temp.each do |ciclo|
           #El ciclo permite actualizar la cantidad de producto comprado y
           #actualizar el total de la venta
-          @sell.orders[pos].update_attributes(quantity: 1)
+          byebug
+          @sell.orders[pos].update_attributes(quantity: quantity[pos])
           @sell.update!(total: @sell.total + (@sell.products[pos].price * @sell.orders[pos].quantity))
           pos+=1
         end
@@ -119,7 +121,7 @@ class SellsController < ApplicationController
       params.require(:sell).permit(:sell_date, 
                                   :total, 
                                   :table, 
-                                  products_attributes: [:name, :id, :_destroy],
+                                  products_attributes: [:name, :id, :price, :_destroy],
                                   orders_attributes: [:quantity]
                                 )
       #params.require(:sell).permit(:sell_date, :total, products_attributes: [:name, :price, :description])
